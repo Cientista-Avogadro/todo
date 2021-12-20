@@ -5,4 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {}
+export class AppComponent {
+  public todos: any[] = [];
+  /**
+   *
+   */
+  constructor() {
+    this.todos.push('ir ao supermercado');
+    this.todos.push('comprar pão');
+    this.todos.push('cortar o cabelo');
+  }
+}
