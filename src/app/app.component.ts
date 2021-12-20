@@ -13,7 +13,7 @@ export class AppComponent {
   constructor() {
     this.todos.push(new Todo(1, 'ir ao supermercado', false));
     this.todos.push(new Todo(2, 'comprar pão', false));
-    this.todos.push(new Todo(3, 'cortar o cabelo', false));
+    this.todos.push(new Todo(3, 'cortar o cabelo', true));
     console.log(this.todos);
   }
 }
