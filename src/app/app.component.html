@@ -8,3 +8,16 @@
     <button (click)="remove(todo)">Remover</button>
   </li>
 </ul>
+
+<form [formGroup]="taskForm">
+  <fieldset>
+    <label>Task</label>
+    <input
+      type="text"
+      placeholder="insira o titulo da tarefa"
+      maxlength="60"
+      formControlName="title"
+    />
+    <button>Save</button>
+  </fieldset>
+</form>

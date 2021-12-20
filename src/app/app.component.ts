@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Todo } from 'src/models/todo.model';
 
 @Component({
@@ -9,12 +15,23 @@ import { Todo } from 'src/models/todo.model';
 export class AppComponent {
   public todos: Todo[] = [];
   public title: String = 'Minha Lista de Tarefa';
+  public taskForm!: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
+    this.taskForm = this.fb.group({
+      title: [
+        '',
+        Validators.compose([
+          Validators.minLength(3),
+          Validators.maxLength(60),
+          Validators.required,
+        ]),
+      ],
+    });
+
     this.todos.push(new Todo(1, 'ir ao supermercado', false));
     this.todos.push(new Todo(2, 'comprar pão', false));
     this.todos.push(new Todo(3, 'cortar o cabelo', true));
-    console.log(this.todos);
   }
 
   remove(todo: Todo) {
